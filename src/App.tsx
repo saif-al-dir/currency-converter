@@ -1,16 +1,22 @@
-import { useTranslation } from "react-i18next";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import { LanguageSwitcher } from "./components/LanguageSwitcher";
+import { Layout } from "./components/Layout";
+import { Home } from "./pages/Home";
+import { Currencies } from "./pages/Currencies";
+import { NotFound } from "./pages/NotFound";
 
 export default function App() {
-  const { t } = useTranslation();
   return (
     <ErrorBoundary>
-      <main className="app" style={{ padding: "2rem" }}>
-        <LanguageSwitcher />
-        <h1>💱 {t("appTitle")}</h1>
-        <p>{t("subtitle")}</p>
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="currencies" element={<Currencies />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ErrorBoundary>
   );
 }

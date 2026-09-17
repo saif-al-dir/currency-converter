@@ -1,2 +1,11 @@
-{ "appTitle": "Przelicznik walut", "subtitle": "Kursy EBC na żywo — przeliczaj, przeglądaj, wykresuj.",
-  "loading": "Ładowanie…", "error": "Coś poszło nie tak.", "retry": "Spróbuj ponownie" }
+{
+  "appTitle": "Przelicznik walut",
+  "subtitle": "Kursy EBC na żywo — przeliczaj, przeglądaj, wykresuj.",
+  "navConverter": "Przelicznik",
+  "navRates": "Kursy",
+  "notFound": "Nie znaleziono strony",
+  "backHome": "Wróć na stronę główną",
+  "loading": "Ładowanie…",
+  "error": "Coś poszło nie tak.",
+  "retry": "Spróbuj ponownie"
+}

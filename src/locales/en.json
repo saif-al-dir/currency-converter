@@ -1,2 +1,11 @@
-{ "appTitle": "Currency Converter", "subtitle": "Live ECB exchange rates — convert, browse, chart.",
-  "loading": "Loading…", "error": "Something went wrong.", "retry": "Retry" }
+{
+  "appTitle": "Currency Converter",
+  "subtitle": "Live ECB exchange rates — convert, browse, chart.",
+  "navConverter": "Converter",
+  "navRates": "Rates",
+  "notFound": "Page not found",
+  "backHome": "Back to home",
+  "loading": "Loading…",
+  "error": "Something went wrong.",
+  "retry": "Retry"
+}
