@@ -50,3 +50,24 @@ body { margin: 0; min-height: 100vh; }
 .swap:hover { background: #8882; }
 .result { margin-top: 1.5rem; padding: 1.25rem 1.5rem; border: 1px solid #8884; border-radius: 10px; }
 .result-value { font-size: 2rem; font-weight: 700; margin: 0; }
+
+.toolbar { display: flex; gap: .75rem; flex-wrap: wrap; align-items: flex-end; margin: 1.25rem 0; }
+.toolbar label { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; flex: 1; min-width: 180px; }
+.toolbar select, .toolbar input { padding: .55rem .7rem; font: inherit; color: inherit; background: transparent; border: 1px solid #8886; border-radius: 8px; }
+
+.chart-card { border: 1px solid #8884; border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; }
+.chart-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.chart-head h2 { margin: 0; font-size: 1.05rem; }
+.range-btns { display: flex; gap: .25rem; flex-wrap: wrap; }
+.range { font: inherit; font-size: .8rem; cursor: pointer; border: 1px solid #8886; background: transparent; color: inherit; border-radius: 6px; padding: .3rem .6rem; }
+.range:hover { background: #8882; }
+.range.active { background: #8883; font-weight: 600; }
+.chart-wrap { height: 280px; color: #3b82f6; } /* Recharts uses currentColor — set once here */
+
+.rates-table { width: 100%; border-collapse: collapse; margin-top: .5rem; }
+.rates-table th, .rates-table td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #8883; }
+.rates-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #888; }
+.rates-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.rates-table tr.selected td { background: #8882; }
+.rates-table tbody tr:hover td { background: #8881; }
+.code-btn { font: inherit; font-weight: 600; font-family: ui-monospace, monospace; background: none; border: none; color: inherit; padding: 0; cursor: pointer; text-decoration: underline dotted; }
