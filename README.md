@@ -1,75 +1,30 @@
-# React + TypeScript + Vite
+# Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live ECB exchange rates — convert, browse and chart currencies, with a bilingual interface (English / Polski).
 
-Currently, two official plugins are available:
+🔗 **Live:** https://currency.saif1.usermd.net
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 💱 Converter with instant amounts, swap, and ECB reference rates
+- 📅 Historical conversions — pick any date back to 1999
+- 📊 Interactive history chart (Recharts) — 7 / 30 / 90 / 365-day ranges, cached per range
+- 📋 Rates table for ~30 currencies, filterable by code or localized name
+- 🌐 Bilingual UI (EN/PL): every string, currency name (Intl.DisplayNames), number and date format localized; choice persisted
+- 🔗 Everything deep-linkable — the URL is the app's state: `?amount=100&from=EUR&to=PLN&date=2024-01-02`
+- ⚡ TanStack Query: caching, deduplication, retries and cancellation across all requests
+- ⚠️ Skeleton loaders, explicit error states with retry, error boundary
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+React · TypeScript · Vite · TanStack Query · React Router · Recharts · react-i18next · plain CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    npm install
+    npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Notes
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- Data: Frankfurter API (ECB reference rates) — keyless, no signup.
+- Every page's state lives in the URL — shareable links restore the exact view.

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { fetchCurrencies, fetchLatest } from "../api/frankfurter";
+import { fetchCurrencies, fetchLatest, fetchRatesOn } from "../api/frankfurter";
 import { formatCurrency, formatDate } from "../utils/format";
 
 export function Home() {
@@ -30,10 +30,17 @@ export function Home() {
     queryFn: ({ signal }) => fetchCurrencies(signal),
   });
 
+  const todayISO = new Date().toISOString().slice(0, 10);
+  const date = searchParams.get("date") ?? todayISO;
+  const isHistorical = date !== todayISO;
+
   const rateQuery = useQuery({
-    queryKey: ["latest", from, to],
-    queryFn: ({ signal }) => fetchLatest(from, [to], signal),
-    enabled: !sameCurrency, // EUR -> EUR needs no request
+    queryKey: ["rates", date, from, to],
+    queryFn: ({ signal }) =>
+      isHistorical
+        ? fetchRatesOn(date, from, [to], signal)
+        : fetchLatest(from, [to], signal),
+    enabled: !sameCurrency,
   });
 
   const names = useMemo(
@@ -103,6 +110,16 @@ export function Home() {
               ))}
             </select>
           </label>
+          <label>
+            {t("date")}
+            <input
+              type="date"
+              value={date}
+              min="1999-01-04"            // ECB data begins 1999-01-04
+              max={todayISO}
+              onChange={(e) => update({ date: e.target.value })}
+            />
+          </label>
         </form>
       )}
 
@@ -112,7 +129,7 @@ export function Home() {
         ) : sameCurrency ? (
           <p className="result-value">{formatCurrency(amountNum, to, locale)}</p>
         ) : rateQuery.isPending ? (
-          <p>{t("loading")}</p>
+          <div className="skeleton skeleton-line" />
         ) : rateQuery.isError ? (
           <p>
             {t("error")} ({rateQuery.error.message}){" "}

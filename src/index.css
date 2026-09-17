@@ -71,3 +71,9 @@ body { margin: 0; min-height: 100vh; }
 .rates-table tr.selected td { background: #8882; }
 .rates-table tbody tr:hover td { background: #8881; }
 .code-btn { font: inherit; font-weight: 600; font-family: ui-monospace, monospace; background: none; border: none; color: inherit; padding: 0; cursor: pointer; text-decoration: underline dotted; }
+
+.skeleton { border-radius: 6px; background: linear-gradient(90deg, #8882 25%, #8884 50%, #8882 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+.skeleton-line { height: 2.5rem; width: 220px; }
+.skeleton-row { height: 2.2rem; margin-bottom: .5rem; }
+.skeleton-block { width: 100%; }
+@keyframes shimmer { to { background-position: -200% 0; } }

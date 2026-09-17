@@ -139,7 +139,7 @@ export function Currencies() {
           </div>
 
           {chartQuery.isPending ? (
-            <p>{t("loading")}</p>
+            <div className="skeleton skeleton-line" />
           ) : chartQuery.isError ? (
             <p>
               {t("error")} ({chartQuery.error.message}){" "}
@@ -199,7 +199,7 @@ export function Currencies() {
       )}
 
       {ratesQuery.isPending ? (
-        <p>{t("loading")}</p>
+        <div className="skeleton skeleton-line" />
       ) : ratesQuery.isError ? (
         <p>
           {t("error")} ({ratesQuery.error.message}){" "}

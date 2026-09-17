@@ -26,5 +26,6 @@
   "backHome": "Wróć na stronę główną",
   "loading": "Ładowanie…",
   "error": "Coś poszło nie tak.",
-  "retry": "Spróbuj ponownie"
+  "retry": "Spróbuj ponownie",
+  "date": "Data (opcjonalnie — kursy historyczne)"
 }

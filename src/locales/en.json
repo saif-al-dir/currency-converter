@@ -26,5 +26,6 @@
   "backHome": "Back to home",
   "loading": "Loading…",
   "error": "Something went wrong.",
-  "retry": "Retry"
+  "retry": "Retry",
+  "date": "Date (optional - past rates)"
 }
